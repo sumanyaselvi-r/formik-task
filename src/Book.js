@@ -74,7 +74,7 @@ const BookList = () => {
             ) : (
               <>
                 <div style={{ paddingLeft: '10px' }}>
-                  <div className="BookTitle">{book.title}</div>
+                  <div className="BookTitle">Book Title{book.title}</div>
                   <div>Author: {book.author}</div>
                   <div>Published: {book.publishedDate}</div>
                   <div>ISBN: {book.isbn}</div>
