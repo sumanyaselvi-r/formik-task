@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AuthorForm from './AuthorForm';
 
-const API_URL = 'https://65704af509586eff66411157.mockapi.io/Authors'; 
+const API_URL = 'https://65704af509586eff66411157.mockapi.io/Authors'; // Replace {project_id} with your actual project ID
 
 const AuthorList = () => {
   const [authors, setAuthors] = useState([]);
@@ -46,6 +47,22 @@ const AuthorList = () => {
       setSelectedAuthor(null);
     });
   };
+  const handleEditClick = (editedAuthor) => {
+    axios.put(`${API_URL}/${editedAuthor.id}`, editedAuthor)
+      .then(() => {
+        setAuthors(authors.map(author =>
+          author.id === editedAuthor.id ? editedAuthor : author
+        ));
+        setSelectedAuthor(null); // Reset selectedAuthor after editing
+      })
+      .catch((error) => {
+        console.error('Error updating author:', error);
+      });
+  };
+
+  const handleCancelEdit = () => {
+    setSelectedAuthor(null);
+  };
 
   return (
     <>
@@ -54,29 +71,42 @@ const AuthorList = () => {
  
       <h2>Author List</h2>
       <ul style={{listStyle:'none'}}>
-      
-        {authors.map(author=> (
+      {authors.map(author=> (
           <li key={author.id} className="AuthorItem">
             {selectedAuthor === author.id ? (
               <AuthorForm
                 initialValues={author}
-                onSubmit={handleEditAuthor}
-                onCancel={handleDeleteAuthor}
+                onSubmit={handleEditClick }
+                onCancel={handleCancelEdit}
               />
             ) : (
               <>
-              <div style={{paddingLeft:'10px'}}>
-          <div className="AuthorName">{author.name}</div>
+          <div style={{ paddingLeft: '10px' }}>
+            <div className="AuthorName">{author.name}</div>
             <div>Born: {author.birthDate}</div>
-            <p className="AuthorBiography">Biography:{author.biography}</p>
-            <button  className="EditButton" onClick={() => handleEditAuthor(author.id)}>Edit</button>
-            <button className="DeleteButton" onClick={() => handleDeleteAuthor(author.id)} style={{paddingLeft:'20px',marginLeft:'20px'}}>Delete</button>
-            </div>
-              </>
+            <p className="AuthorBiography">Biography: {author.biography}</p>
+            <button
+              className="EditButton"
+              onClick={() => handleEditAuthor(author.id)}
+            >
+              Edit
+            </button>
+            <button
+              className="DeleteButton"
+              onClick={() => handleDeleteAuthor(author.id)}
+              style={{ paddingLeft: '20px', marginLeft: '20px' }}
+            >
+              Delete
+            </button>
+          </div>
+        </>
 
             )}
-                </li>
+
+          </li>
         ))}
+
+        
 
        
       </ul>
