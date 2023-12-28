@@ -1,10 +1,8 @@
-// AuthorList.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AuthorForm from './AuthorForm';
 
-const API_URL = 'https://65704af509586eff66411157.mockapi.io/Authors'; // Replace {project_id} with your actual project ID
+const API_URL = 'https://65704af509586eff66411157.mockapi.io/Authors'; 
 
 const AuthorList = () => {
   const [authors, setAuthors] = useState([]);
