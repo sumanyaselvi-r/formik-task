@@ -55,17 +55,26 @@ const AuthorList = () => {
       <h2>Author List</h2>
       <ul style={{listStyle:'none'}}>
       
-        {authors.map((author) => (
+        {authors.map(author=> (
           <li key={author.id} className="AuthorItem">
-          <div style={{paddingLeft:'10px'}}>
+            {selectedAuthor === author.id ? (
+              <AuthorForm
+                initialValues={author}
+                onSubmit={handleEditAuthor}
+                onCancel={handleDeleteAuthor}
+              />
+            ) : (
+              <>
+              <div style={{paddingLeft:'10px'}}>
           <div className="AuthorName">{author.name}</div>
             <div>Born: {author.birthDate}</div>
             <p className="AuthorBiography">Biography:{author.biography}</p>
-            <button  className="EditButton" onClick={() => handleEditAuthor(author)}>Edit</button>
+            <button  className="EditButton" onClick={() => handleEditAuthor(author.id)}>Edit</button>
             <button className="DeleteButton" onClick={() => handleDeleteAuthor(author.id)} style={{paddingLeft:'20px',marginLeft:'20px'}}>Delete</button>
             </div>
-          </li>
-        ))}
+              </>
+
+            )}
        
       </ul>
    
