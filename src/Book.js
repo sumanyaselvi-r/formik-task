@@ -48,12 +48,14 @@ const BookList = () => {
   const handleCancelEdit = () => {
     setSelectedBook(null); // Reset selectedBook on cancel
   };
+  
   const handleAddBook = (newBook) => {
     // Add new book to the API and update the state
     axios.post('https://65704af509586eff66411157.mockapi.io/books', newBook)
       .then(response => setBooks([...books, response.data]))
       .catch(error => console.error('Error adding book:', error));
   };
+
 
 
   return (
@@ -75,7 +77,8 @@ const BookList = () => {
                   <div className="BookTitle">{book.title}</div>
                   <div>Author: {book.author}</div>
                   <div>Published: {book.publishedDate}</div>
-                  <p className="BookDescription">Description: {book.description}</p>
+                  <div>ISBN: {book.isbn}</div>
+                  
                   <button
                     className="EditButton"
                     onClick={() => handleEditBook(book.id)}
@@ -96,9 +99,9 @@ const BookList = () => {
         ))}
       </ul>
     </div>
-    
-<h2>Add New Book</h2>
-      <BookForm initialValues={{ title: '', author: '', ISBN: '', publicationDate: '' }} onSubmit={handleAddBook} />
+    <h2>Add New Book</h2>
+      <BookForm initialValues={{ title: '', author: '', ISBN: '', publicationDate: ''  }} 
+ onSubmit={handleAddBook}/>
    
     </>
   );
