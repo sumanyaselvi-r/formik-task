@@ -1,90 +1,78 @@
+
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const BookForm = () => {
+const BookForm = ({ initialValues, onSubmit, onCancel }) => {
+  const validationSchema = Yup.object({
+    title: Yup.string().required('Title is required'),
+    author: Yup.string().required('Author is required'),
+    publishedDate: Yup.string().required('Published Date is required'),
+    description: Yup.string().required('Description is required'),
+  });
+
   const formik = useFormik({
-    initialValues: {
-      title: '',
-      author: '',
-      isbn: '',
-      publicationDate: '',
-    },
-    validationSchema: Yup.object({
-      title: Yup.string().required('Title is required'),
-      author: Yup.string().required('Author is required'),
-      isbn: Yup.string().required('ISBN is required'),
-      publicationDate: Yup.date().required('Publication date is required'),
-    }),
-    onSubmit: values => {
-      // Handle form submission (add or edit book)
-      console.log(values);
+    initialValues,
+    validationSchema,
+    onSubmit: (values) => {
+      onSubmit(values);
     },
   });
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="title">Title:</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.title}
-        />
-        {formik.touched.title && formik.errors.title ? (
-          <div className="error">{formik.errors.title}</div>
-        ) : null}
-      </div>
+      <label>Title:</label>
+      <input
+        type="text"
+        name="title"
+        value={formik.values.title}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.title && formik.touched.title && (
+        <div>{formik.errors.title}</div>
+      )}
 
-      <div className="form-group">
-        <label htmlFor="author">Author:</label>
-        <input
-          type="text"
-          id="author"
-          name="author"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.author}
-        />
-        {formik.touched.author && formik.errors.author ? (
-          <div className="error">{formik.errors.author}</div>
-        ) : null}
-      </div>
+      <label>Author:</label>
+      <input
+        type="text"
+        name="author"
+        value={formik.values.author}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.author && formik.touched.author && (
+        <div>{formik.errors.author}</div>
+      )}
+      <label>ISBN:</label>
+      <input
+        type="text"
+        name="isbn"
+        value={formik.values.isbn}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.isbn && formik.touched.isbn && (
+        <div>{formik.errors.isbn}</div>
+      )}
 
-      <div className="form-group">
-        <label htmlFor="isbn">ISBN:</label>
-        <input
-          type="text"
-          id="isbn"
-          name="isbn"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.isbn}
-        />
-        {formik.touched.isbn && formik.errors.isbn ? (
-          <div className="error">{formik.errors.isbn}</div>
-        ) : null}
-      </div>
+      <label>Published Date:</label>
+      <input
+        type="date"
+        name="publishedDate"
+        value={formik.values.publishedDate}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.publishedDate && formik.touched.publishedDate && (
+        <div>{formik.errors.publishedDate}</div>
+      )}
 
-      <div className="form-group">
-        <label htmlFor="publicationDate">Publication Date:</label>
-        <input
-          type="date"
-          id="publicationDate"
-          name="publicationDate"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.publicationDate}
-        />
-        {formik.touched.publicationDate && formik.errors.publicationDate ? (
-          <div className="error">{formik.errors.publicationDate}</div>
-        ) : null}
-      </div>
+     
+      {formik.errors.description && formik.touched.description && (
+        <div>{formik.errors.description}</div>
+      )}
 
-      <button type="submit">Submit</button>
+      <button type="submit">Save</button>
+      <button type="button" onClick={onCancel}>
+        Cancel
+      </button>
     </form>
   );
 };
