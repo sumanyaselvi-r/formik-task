@@ -1,0 +1,264 @@
+/* App.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: #3498db;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #27ae60;
+}
+
+/* Add more styles as needed */
+
+/* App.css */
+/* App.css */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+.app {
+  display: flex;
+}
+
+/* Sidebar.css */
+/* Sidebar.css */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 20px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #3498db;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sidebar li:hover {
+  color: #3498db;
+}
+
+/* Add this CSS to your project's stylesheet or component styles */
+
+/* AuthorList Styles */
+.AuthorList {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Author Item Styles */
+.AuthorItem {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.AuthorName {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.AuthorBiography {
+  margin-top: 5px;
+}
+
+/* Optional: Edit and Delete Button Styles */
+.EditButton,
+.DeleteButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.EditButton:hover,
+.DeleteButton:hover {
+  background-color: #0056b3;
+}
+/* Add this CSS to your project's stylesheet or component styles */
+
+/* AuthorDashboard Styles */
+.AuthorDashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* AuthorForm Styles */
+.AuthorForm {
+  margin-bottom: 20px;
+}
+
+/* Form Group Styles */
+.FormGroup {
+  margin-bottom: 20px;
+}
+
+/* Form Label Styles */
+.FormLabel {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Form Input Styles */
+.FormInput {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Form Textarea Styles */
+.FormTextarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Form Button Styles */
+.FormButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.FormButton:hover {
+  background-color: #0056b3;
+}
+
+/* AuthorList Styles */
+.AuthorList {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Author Item Styles */
+.AuthorItem {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.AuthorName {
+  font-weight: bold;
+}
+
+.AuthorBirthDate {
+  color: #888;
+}
+
+.AuthorBiography {
+  margin-top: 5px;
+}
+
+/* Optional: Edit and Delete Button Styles */
+.EditButton,
+.DeleteButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.EditButton:hover,
+.DeleteButton:hover {
+  background-color: #0056b3;
+}
+
+/*navbar*/
+
+
+
+
+
+/* Add more styles for your main content as needed */
+
+
+
+
