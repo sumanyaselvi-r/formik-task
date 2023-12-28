@@ -1,4 +1,4 @@
-
+// BookForm.js
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -8,11 +8,21 @@ const BookForm = ({ initialValues, onSubmit, onCancel }) => {
     title: Yup.string().required('Title is required'),
     author: Yup.string().required('Author is required'),
     publishedDate: Yup.string().required('Published Date is required'),
-    description: Yup.string().required('Description is required'),
+    isbn: Yup.string().required('ISBN is required'),
+   
   });
 
+  // Ensure initialValues is not undefined
+  const initialFormValues = initialValues || {
+    title: '',
+    author: '',
+    publishedDate: '',
+    isbn: '',
+    
+  };
+
   const formik = useFormik({
-    initialValues,
+    initialValues: initialFormValues,
     validationSchema,
     onSubmit: (values) => {
       onSubmit(values);
@@ -42,16 +52,6 @@ const BookForm = ({ initialValues, onSubmit, onCancel }) => {
       {formik.errors.author && formik.touched.author && (
         <div>{formik.errors.author}</div>
       )}
-      <label>ISBN:</label>
-      <input
-        type="text"
-        name="isbn"
-        value={formik.values.isbn}
-        onChange={formik.handleChange}
-      />
-      {formik.errors.isbn && formik.touched.isbn && (
-        <div>{formik.errors.isbn}</div>
-      )}
 
       <label>Published Date:</label>
       <input
@@ -64,12 +64,20 @@ const BookForm = ({ initialValues, onSubmit, onCancel }) => {
         <div>{formik.errors.publishedDate}</div>
       )}
 
-     
-      {formik.errors.description && formik.touched.description && (
-        <div>{formik.errors.description}</div>
+      <label>ISBN:</label>
+      <input
+        type="text"
+        name="isbn"
+        value={formik.values.isbn}
+        onChange={formik.handleChange}
+      />
+      {formik.errors.isbn && formik.touched.isbn && (
+        <div>{formik.errors.isbn}</div>
       )}
 
-      <button type="submit">Save</button>
+      
+
+      <button type="submit" >Save</button>
       <button type="button" onClick={onCancel}>
         Cancel
       </button>
