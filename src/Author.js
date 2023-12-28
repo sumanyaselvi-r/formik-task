@@ -75,6 +75,9 @@ const AuthorList = () => {
               </>
 
             )}
+                </li>
+        ))}
+
        
       </ul>
    
